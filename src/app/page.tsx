@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className='relative bg-slate-100'>
       <div className='p-4 grid gap-2 md:grid-cols-2 overflow-auto'>
-        <div className='text-2xl bg-white px-4 py-6 rounded-xl'>
+        <div className='text-2xl bg-white px-4 py-6 rounded-xl flex flex-col gap-4'>
           {rows.map((word, index) => (
             <Row key={index} word={word} />
           ))}

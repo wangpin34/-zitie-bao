@@ -1,8 +1,25 @@
 import { create } from 'zustand'
 
-export type FontFamily = 'default' | 'kg primary dots'
+export type FontFamily =
+  | 'default'
+  | 'delius'
+  | 'kg primary dots'
+  | 'patrick hand'
+  | 'schoolbell'
+  | 'caveat'
+  | 'kalam'
+  | 'gloria hallelujah'
 
-export const FONT_FAMILY: Array<FontFamily> = ['default', 'kg primary dots']
+export const FONT_FAMILY: Array<FontFamily> = [
+  'default',
+  'delius',
+  'kg primary dots',
+  'patrick hand',
+  'schoolbell',
+  'caveat',
+  'kalam',
+  'gloria hallelujah',
+]
 
 export const DEFAULT_FONT_FAMILY = 'default'
 
