@@ -7,7 +7,7 @@ export default function PrintPage() {
   const theme = searchParams.get('theme') ?? 'default'
   const words = text.split(/\s/)
   return (
-    <div className='p-4 flex flex-col gap-2 text-2xl'>
+    <div className={`p-4 flex flex-col gap-2 text-2xl zt-theme-${theme}`}>
       {words.map((word, index) => (
         <Row key={index} word={word} />
       ))}
