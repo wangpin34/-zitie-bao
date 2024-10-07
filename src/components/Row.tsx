@@ -41,6 +41,7 @@ const spanStyle = {
     fontSize: '0.8em',
     bottom: '0.2em',
   },
+  'kg primary dots': {},
 }
 
 export default function Row({
@@ -85,7 +86,6 @@ export default function Row({
       ></div>
       <span
         className='z-10 text-slate-700 px-1 tracking-wider relative'
-        //@ts-ignore
         style={{ ...(spanStyle[resolvedFontFamily] || {}) }}
       >
         {word}
