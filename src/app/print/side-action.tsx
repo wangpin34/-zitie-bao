@@ -43,7 +43,7 @@ export default function SideAction() {
             variant='classic'
             radius='full'
             className='shadow-md'
-            onClick={() => router.back()}
+            onClick={() => router.push('/')}
           >
             <ArrowLeftIcon />
           </IconButton>
