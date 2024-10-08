@@ -1,8 +1,8 @@
 'use client'
+import IonIosPrinterOutline from '@/components/IonIosPrinterOutline'
 import Row from '@/components/Row'
 import usePixelsPerMM from '@/hooks/usePixelsPerMM'
 import { FONT_FAMILY, FontFamily, useFontFamilyStore } from '@/states/zitie'
-import { DownloadIcon } from '@radix-ui/react-icons'
 import { Button, Flex, Grid, Select, Text, TextArea } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
 import { useCallback, useMemo, useRef, useState } from 'react'
@@ -80,7 +80,7 @@ export default function Home() {
             </Flex>
             <Flex mt='4' gap='2'>
               <Button onClick={handlePrint} variant='outline'>
-                <DownloadIcon /> 打印
+                <IonIosPrinterOutline /> 打印
               </Button>
             </Flex>
           </Flex>
