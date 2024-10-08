@@ -1,28 +1,67 @@
-'use client'
 import Row from '@/components/Row'
-import { FontFamily } from '@/states/zitie'
-import { useSearchParams } from 'next/navigation'
-import { Suspense } from 'react'
+import { FONT_FAMILY, FontFamily } from '@/states/zitie'
+import Joi from 'joi'
+import SideAction from './side-action'
 
-function Page() {
-  const searchParams = useSearchParams()
-  const text = searchParams.get('text') ?? '\n\n\n\n'
-  const fontFamily = searchParams.get('font-family') ?? 'default'
+function Page({
+  text,
+  fontFamily,
+  pageSize,
+}: {
+  text: string
+  fontFamily: FontFamily
+  pageSize: number
+}) {
   const words = text.split(/\s/)
+  const restRows = new Array(pageSize - words.length).fill(0)
 
   return (
-    <div className={`p-4 flex flex-col gap-2 text-2xl`}>
+    <div className='w-[210mm] h-[297mm] m-auto box-border p-[5mm] flex flex-col gap-2 text-2xl'>
       {words.map((word, index) => (
         <Row key={index} word={word} fontFamily={fontFamily as FontFamily} />
+      ))}
+      {restRows.map((_, index) => (
+        <Row key={index} word={'\n'} fontFamily={fontFamily as FontFamily} />
       ))}
     </div>
   )
 }
 
-export default function PrintPage() {
+const schema = Joi.object({
+  text: Joi.string().required(),
+  'font-family': Joi.string()
+    .valid(...FONT_FAMILY)
+    .default('default'),
+  'page-size': Joi.number().min(1).max(100).default(32),
+})
+
+interface SearchParams {
+  text: string // Required string
+  'font-family': FontFamily // Optional string, defaulting to 'default'
+  'page-size': number // Optional number, defaulting to 32
+}
+
+export default function PrintPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  const { value, error } = schema.validate(searchParams)
+  const params = value as SearchParams
+
+  if (error) {
+    return <div>{error.message}</div>
+  }
+
   return (
-    <Suspense>
-      <Page />
-    </Suspense>
+    <div>
+      <Page
+        text={params.text}
+        fontFamily={params['font-family']}
+        pageSize={params['page-size']}
+      />
+
+      <SideAction />
+    </div>
   )
 }

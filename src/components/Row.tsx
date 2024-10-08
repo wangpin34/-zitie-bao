@@ -1,4 +1,4 @@
-import { FontFamily, useFontFamilyStore } from '@/states/zitie'
+import { FontFamily } from '@/states/zitie'
 import classnames from 'classnames'
 
 const defaultTopOffset = ['34%', '67%']
@@ -49,15 +49,13 @@ export default function Row({
   fontFamily,
 }: {
   word: string
-  fontFamily?: FontFamily
+  fontFamily: FontFamily
 }) {
-  const { value: fontFamilyFromStore } = useFontFamilyStore()
-  const resolvedFontFamily = fontFamily ?? fontFamilyFromStore
   return (
     <div
       className={classnames(
-        'relative text-slate-400 w-full leading-none font-semibold',
-        `font-${resolvedFontFamily.replaceAll(' ', '-')}`
+        'rendered-row relative text-slate-400 w-full leading-none font-semibold',
+        `font-${fontFamily.replaceAll(' ', '-')}`
       )}
       style={{
         borderStyle: 'solid',
@@ -72,7 +70,7 @@ export default function Row({
           borderStyle: 'dashed',
           borderColor: 'inherit',
           borderBottomWidth: '1px',
-          top: fontToOffset[resolvedFontFamily]?.[0],
+          top: fontToOffset[fontFamily]?.[0],
         }}
       ></div>
       <div
@@ -81,12 +79,12 @@ export default function Row({
           borderStyle: 'dashed',
           borderColor: 'currentColor',
           borderBottomWidth: '1px',
-          top: fontToOffset[resolvedFontFamily]?.[1],
+          top: fontToOffset[fontFamily]?.[1],
         }}
       ></div>
       <span
         className='z-10 text-slate-700 px-1 tracking-wider relative'
-        style={{ ...(spanStyle[resolvedFontFamily] || {}) }}
+        style={{ ...(spanStyle[fontFamily] || {}) }}
       >
         {word}
       </span>
