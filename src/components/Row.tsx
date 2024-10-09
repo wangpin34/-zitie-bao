@@ -1,20 +1,6 @@
 import { FontFamily } from '@/states/zitie'
 import classnames from 'classnames'
 
-const defaultTopOffset = ['34%', '67%']
-const kgPrimaryDotsTopOffset = ['40%', '73%']
-
-const fontToOffset = {
-  default: defaultTopOffset,
-  delius: defaultTopOffset,
-  'patrick hand': defaultTopOffset,
-  'kg primary dots': kgPrimaryDotsTopOffset,
-  schoolbell: defaultTopOffset,
-  caveat: defaultTopOffset,
-  kalam: defaultTopOffset,
-  'gloria hallelujah': defaultTopOffset,
-}
-
 const spanStyle = {
   default: {
     fontSize: '0.8em',
@@ -41,7 +27,10 @@ const spanStyle = {
     fontSize: '0.8em',
     bottom: '0.2em',
   },
-  'kg primary dots': {},
+  'kg primary dots': {
+    fontSize: '0.8em',
+    bottom: '0.2em',
+  },
 }
 
 export default function Row({
@@ -64,24 +53,8 @@ export default function Row({
         borderTopWidth: 1,
       }}
     >
-      <div
-        className={classnames('absolute w-full box-border')}
-        style={{
-          borderStyle: 'dashed',
-          borderColor: 'inherit',
-          borderBottomWidth: '1px',
-          top: fontToOffset[fontFamily]?.[0],
-        }}
-      ></div>
-      <div
-        className={classnames('absolute w-full box-border')}
-        style={{
-          borderStyle: 'dashed',
-          borderColor: 'currentColor',
-          borderBottomWidth: '1px',
-          top: fontToOffset[fontFamily]?.[1],
-        }}
-      ></div>
+      <div className='absolute w-full box-border border-current border-dashed border-b-[1px] top-[34%]'></div>
+      <div className='absolute w-full box-border border-current border-dashed border-b-[1px] top-[67%]'></div>
       <span
         className='z-10 text-slate-700 px-1 tracking-wider relative'
         style={{ ...(spanStyle[fontFamily] || {}) }}

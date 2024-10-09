@@ -7,15 +7,18 @@ import { Button, Flex, Grid, Select, Text, TextArea } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
 import { useCallback, useMemo, useRef, useState } from 'react'
 
+const defaultText =
+  'Aa Ba Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz'
+
 export default function Home() {
-  const [text, setText] = useState('Welcome to')
+  const [text, setText] = useState(defaultText)
   const previewRef = useRef<HTMLDivElement>(null)
   const pixelsPerMM = usePixelsPerMM()
   const font = useFontFamilyStore((state) => state.value)
   const setFont = useFontFamilyStore((state) => state.setValue)
   const router = useRouter()
   const rows = useMemo(() => {
-    const words = text.split(/\s/)
+    const words = text.split(/\s+/)
     const _rows = new Array<string>(10)
     for (let i = 0; i < _rows.length; i++) {
       if (i < words.length) {

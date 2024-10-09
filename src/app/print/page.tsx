@@ -12,7 +12,7 @@ function Page({
   fontFamily: FontFamily
   pageSize: number
 }) {
-  const words = text.split(/\s/)
+  const words = text.split(/\s+/)
   const restRows = new Array(pageSize - words.length).fill(0)
 
   return (
