@@ -43,15 +43,9 @@ export default function Row({
   return (
     <div
       className={classnames(
-        'rendered-row relative text-slate-400 w-full leading-none font-semibold',
+        'rendered-row relative text-slate-400 w-full leading-none font-semibold border-solid border-current border-y-[1px]',
         `font-${fontFamily.replaceAll(' ', '-')}`
       )}
-      style={{
-        borderStyle: 'solid',
-        borderColor: 'currentColor',
-        borderBottomWidth: 1,
-        borderTopWidth: 1,
-      }}
     >
       <div className='absolute w-full box-border border-current border-dashed border-b-[1px] top-[34%]'></div>
       <div className='absolute w-full box-border border-current border-dashed border-b-[1px] top-[67%]'></div>
