@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div className='w-screen h-screen relative bg-slate-100'>
-      <div className='p-4 grid gap-2 md:grid-cols-2 overflow-auto'>
+      <div className='p-4 grid gap-2 md:grid-cols-2 md:max-w-[768px] m-auto overflow-auto'>
         <div
           className='max-w-[210mm] text-2xl bg-white p-4 rounded-xl flex flex-col gap-2 print:w-[210mm]'
           ref={previewRef}
