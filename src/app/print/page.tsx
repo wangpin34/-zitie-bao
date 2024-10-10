@@ -33,12 +33,14 @@ const schema = Joi.object({
     .valid(...FONT_FAMILY)
     .default('default'),
   'page-size': Joi.number().min(1).max(100).default(32),
+  'no-side-actions': Joi.boolean(),
 })
 
 interface SearchParams {
   text: string // Required string
   'font-family': FontFamily // Optional string, defaulting to 'default'
   'page-size': number // Optional number, defaulting to 32
+  'no-side-actions'?: boolean
 }
 
 export default function PrintPage({
@@ -46,6 +48,7 @@ export default function PrintPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  console.log(searchParams)
   const { value, error } = schema.validate(searchParams)
   const params = value as SearchParams
 
@@ -61,7 +64,7 @@ export default function PrintPage({
         pageSize={params['page-size']}
       />
 
-      <SideAction />
+      {params['no-side-actions'] || <SideAction />}
     </div>
   )
 }
