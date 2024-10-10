@@ -1,6 +1,6 @@
 'use client'
 import IonIosPrinterOutline from '@/components/IonIosPrinterOutline'
-import Row from '@/components/Row'
+import Row from '@/components/row'
 import usePixelsPerMM from '@/hooks/usePixelsPerMM'
 import { FONT_FAMILY, FontFamily, useFontFamilyStore } from '@/states/zitie'
 import { Button, Flex, Grid, Select, Text, TextArea } from '@radix-ui/themes'
