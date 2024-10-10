@@ -41,7 +41,7 @@ export default function Home() {
     const pageSize = Math.floor((restPixesOnY + gap) / rowHeight)
 
     router.push(`/print?text=${text}&font-family=${font}&page-size=${pageSize}`)
-  }, [text, font, pixelsPerMM])
+  }, [pixelsPerMM, router, text, font])
 
   return (
     <div className='w-screen h-screen relative bg-slate-100'>
