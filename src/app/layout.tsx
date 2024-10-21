@@ -12,6 +12,7 @@ import {
 } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
+import './color.css'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -80,7 +81,7 @@ const gloriaHallelujah = Gloria_Hallelujah({
 
 export const metadata: Metadata = {
   title: '字帖宝',
-  description: '生成英文字帖',
+  description: '制作英文字帖',
 }
 
 export default function RootLayout({

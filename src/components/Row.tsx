@@ -43,7 +43,7 @@ export default function Row({
   return (
     <div
       className={classnames(
-        'rendered-row relative text-slate-400 w-full leading-none font-semibold border-solid border-current border-y-[1px]',
+        'rendered-row relative text-[var(--red-8)] w-full leading-none font-semibold border-solid border-current border-y-[1px]',
         `font-${fontFamily.replaceAll(' ', '-')}`
       )}
     >

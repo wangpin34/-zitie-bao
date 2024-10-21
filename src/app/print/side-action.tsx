@@ -6,7 +6,7 @@ import {
   Share1Icon,
 } from '@radix-ui/react-icons'
 import * as Toast from '@radix-ui/react-toast'
-import { Flex, IconButton, Text } from '@radix-ui/themes'
+import { Flex, IconButton, Text, Theme } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
 import { useCallback, useState } from 'react'
 export default function SideAction() {
@@ -16,7 +16,7 @@ export default function SideAction() {
     window.print()
   }, [])
   return (
-    <>
+    <Theme accentColor='red'>
       <aside className='fixed bottom-8 right-2 z-10 print:hidden'>
         <Flex direction='column' gap='2'>
           <IconButton
@@ -64,6 +64,6 @@ export default function SideAction() {
         </Toast.Root>
         <Toast.Viewport className='fixed bottom-0 right-0' />
       </Toast.Provider>
-    </>
+    </Theme>
   )
 }
