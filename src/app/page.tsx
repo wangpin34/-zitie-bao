@@ -5,46 +5,9 @@ import usePixelsPerMM from "@/hooks/usePixelsPerMM";
 import { FONT_FAMILY, FontFamily, useFontFamilyStore } from "@/states/zitie";
 import { Button, Flex, Grid, Select, Text, TextArea, Theme } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 const defaultText = "Aa Ba Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz";
-
-function InstallPrompt() {
-  const [isIOS, setIsIOS] = useState(false);
-  const [isStandalone, setIsStandalone] = useState(false);
-
-  useEffect(() => {
-    setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream);
-
-    setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
-  }, []);
-
-  if (isStandalone) {
-    return null; // Don't show install button if already installed
-  }
-
-  return (
-    <div>
-      <h3>Install App</h3>
-      <button>Add to Home Screen</button>
-      {isIOS && (
-        <p>
-          To install this app on your iOS device, tap the share button
-          <span role="img" aria-label="share icon">
-            {" "}
-            ⎋{" "}
-          </span>
-          and then "Add to Home Screen"
-          <span role="img" aria-label="plus icon">
-            {" "}
-            ➕{" "}
-          </span>
-          .
-        </p>
-      )}
-    </div>
-  );
-}
 
 export default function Home() {
   const [text, setText] = useState(defaultText);
