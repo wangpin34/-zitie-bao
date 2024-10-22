@@ -3,9 +3,9 @@ import IonIosPrinterOutline from "@/components/IonIosPrinterOutline";
 import Row from "@/components/row";
 import usePixelsPerMM from "@/hooks/usePixelsPerMM";
 import { FONT_FAMILY, FontFamily, useFontFamilyStore } from "@/states/zitie";
-import { Button, Flex, Grid, Select, Text, TextArea, Theme, Box } from "@radix-ui/themes";
+import { Button, Flex, Grid, Select, Text, TextArea, Theme } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useRef, useState, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const defaultText = "Aa Ba Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz";
 
